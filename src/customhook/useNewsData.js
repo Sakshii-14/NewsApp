@@ -5,12 +5,12 @@ function useNewsData(category='') {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-//   const apikey=import.meta.env.VITE_API_KEY;
+   const apikey=import.meta.env.VITE_API_KEY;
   
   useEffect(() => {
     const fetchNewsInfo = async () => {
       try {
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=8a7c57c1b3f3468dabff6eb7ae7403ea&category=${category}`);
+        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apikey}&category=${category}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
